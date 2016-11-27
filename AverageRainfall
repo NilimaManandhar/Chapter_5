@@ -1,0 +1,56 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Nilima M
+ */
+import java.util.Scanner;
+public class AverageRainfall {
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        int years;
+        
+        System.out.print("Enter the number of years : ");
+        years=input.nextInt();
+        int inches=0;
+        int totalinches=0;
+        int totalmonths=0;
+        int avg;
+        
+        for(int i=1; i<=years;i++)
+        {
+            for(int months=1; months<=12; months++)
+            {
+                System.out.print("Enter the rainfall in inches for month #"+ months+ " :");
+                inches=input.nextInt();
+                totalinches= totalinches+inches;
+                totalmonths=totalmonths+1;
+            }
+            
+            avg=totalinches/totalmonths;
+            System.out.println("The avg is "+ avg + " for year #"+ i);
+        }
+        System.out.println("The total inches is "+ totalinches);
+        System.out.println("Total months "+ totalmonths);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
