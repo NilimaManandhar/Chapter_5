@@ -1,0 +1,55 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Nilima M
+ */
+import java.io.*;
+import java.util.Scanner;
+public class UpperCase {
+    private String fileone;
+    private String filetwo;
+    public UpperCase(String fileone, String filetwo)
+    {
+        this.fileone=fileone;
+        this.filetwo=filetwo;
+    }
+    public String read()
+    {
+        return fileone;
+    }
+    public String write()
+    {
+        return filetwo;
+    }
+    
+    public static void main(String[] args) throws IOException
+            
+    {
+        UpperCase obj = new UpperCase("hello.txt","bye.txt");
+        String filetoread = obj.read();
+        //gotta write something to it, eh?
+        PrintWriter a=new PrintWriter(filetoread);
+        a.println("This is a boring programming exercise. Dear lord have mercy on me..");
+        a.println("Still boring");
+        a.close();
+        String filetowrite=obj.write();
+        PrintWriter write = new PrintWriter(filetowrite);
+        
+        
+        File file=new File(filetoread);
+        Scanner input = new Scanner(file);
+        while(input.hasNext())
+        {
+            String read=input.nextLine();
+            write.println(read.toUpperCase());
+        }
+        
+        write.close();
+    }
+    
+}
