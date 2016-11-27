@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Nilima M
+ */
+import java.util.Scanner;
+public class Payroll1 {
+    private int id;
+    private int grosspay;
+    private int statetax;
+    private int federaltax;
+    private int FICA;
+    
+    public Payroll1(int id, int grosspay, int statetax, int federaltax, int FICA)
+    {
+        this.id=id;
+        this.grosspay=grosspay;
+        this.statetax=statetax;
+        this.federaltax=federaltax;
+        this.FICA=FICA;
+    }
+    public int getNetPay()
+    {
+        int net=grosspay-statetax-federaltax-FICA;
+        return net;
+    }
+    public static void main(String[] args)
+    {
+        Scanner input=new Scanner(System.in);
+        int terminate=0;
+        int userid, grosspay,state,federal,fica;
+        do{
+            System.out.print("Enter id: ");
+            userid=input.nextInt();
+            System.out.print("Enter gross pay : ");
+            grosspay=input.nextInt();
+            System.out.print("Enter state tax :");
+            state=input.nextInt();
+            System.out.print("Enter federal tax : ");
+            federal=input.nextInt();
+            System.out.print("Enter FICA ");
+            fica=input.nextInt();
+            
+            //Instance of payroll class yada yada
+            Payroll1 obj=new Payroll1(userid,grosspay,state,federal,fica );
+            System.out.println("The net pay for employee #"+ userid+ " is: " +obj.getNetPay());
+            System.out.println();
+            System.out.print("Press 0 to terminate..Any other key to continue..");
+            terminate=input.nextInt();
+            
+        }while(terminate!=0);
+    }
+}
